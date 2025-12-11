@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+// import 'package:http/http.dart' as http;
 
-class register extends StatefulWidget {
+
+class register extends StatelessWidget {
   const register({super.key});
 
   @override
-  State<register> createState() => _registerState();
-}
-
-class _registerState extends State<register> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Halaman Register'),
+        backgroundColor: Colors.blueAccent,
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: ,
+      ),
+    );
   }
 }
