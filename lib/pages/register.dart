@@ -22,7 +22,15 @@ class _registerState extends State<register> {
   Future<void> _registerUser() async {
     final String firstName = _firstNameController.text;
     final String lastName = _lastNameController.text;
+    final int? age = int.tryParse(_ageController.text);
+    final String email = _emailController.text;
 
+    if (firstName.isEmpty || lastName || age == null || email.isEmpty) {
+      setState(() {
+        _message = 'Semua data wajib diisi.';
+      });
+      return;
+    }
   }
 
   Widget _buildInputField(
@@ -57,9 +65,17 @@ class _registerState extends State<register> {
             const SizedBox(height: 12),
             _buildInputField(_lastNameController, 'Last Name'),
             const SizedBox(height: 12),
-            _buildInputField(_ageController, 'Age', KeyboardType: TextInputType.number),
+            _buildInputField(
+              _ageController,
+              'Age',
+              KeyboardType: TextInputType.number,
+            ),
             const SizedBox(height: 12),
-            _buildInputField(_emailController, 'Email', KeyboardType: TextInputType.emailAddress),
+            _buildInputField(
+              _emailController,
+              'Email',
+              KeyboardType: TextInputType.emailAddress,
+            ),
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
