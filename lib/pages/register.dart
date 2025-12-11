@@ -36,7 +36,7 @@ class _registerState extends State<register> {
       _message = 'Mendaftar... Mohon tunggu';
     });
 
-    const String url = 'https://dummyjson.com/todos';
+    const String url = 'https://dummyjson.com/users/add';
 
     try {
       final response = await http.post(
@@ -53,7 +53,7 @@ class _registerState extends State<register> {
         }),
       );
 
-      if (response.statusCode == 2001 || response.statusCode == 200) {
+      if (response.statusCode == 201 || response.statusCode == 200) {
         final responseBody = jsonDecode(response.body);
         setState(() {
           _message = 'Pendafratan Berhasil! Server ID: ${responseBody['id']}';
