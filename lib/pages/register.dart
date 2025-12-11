@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
-// import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http;
 
-class register extends StatelessWidget {
+class register extends StatefulWidget {
   const register({super.key});
 
+  @override
+  State<register> createState() => _registerState();
+}
+
+class _registerState extends State<register> {
   final TextEditingController _firstNameController =
       const TextEditingController();
   final TextEditingController _lastNameController =
       const TextEditingController();
   final TextEditingController _ageController = const TextEditingController();
   final TextEditingController _emailController = const TextEditingController();
+
+  bool _isLoading = false;
+  String _message = '';
+
+  Future<void> _registerUser() async {
+    final String firstName = _firstNameController.text;
+    final String lastName = _lastNameController.text;
+
+  }
 
   Widget _buildInputField(
     TextEditingController controller,
@@ -43,19 +57,22 @@ class register extends StatelessWidget {
             const SizedBox(height: 12),
             _buildInputField(_lastNameController, 'Last Name'),
             const SizedBox(height: 12),
-            _buildInputField(_ageController, 'Age'),
+            _buildInputField(_ageController, 'Age', KeyboardType: TextInputType.number),
             const SizedBox(height: 12),
-            _buildInputField(_emailController, 'Email'),
+            _buildInputField(_emailController, 'Email', KeyboardType: TextInputType.emailAddress),
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                print('Success');
+                print('Percobaan');
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
                 padding: const EdgeInsets.symmetric(vertical: 15),
               ),
-              child: const Text('REGISTER', style: TextStyle(fontSize: 18, color: Colors.white)),
+              child: const Text(
+                'REGISTER',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
             ),
           ],
         ),
