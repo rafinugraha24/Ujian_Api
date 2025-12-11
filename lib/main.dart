@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rafi_2407810040008_ujian_api/pages/register.dart';
+import 'package:rafi_2407810040008_ujian_api/pages/todo.dart';
 
 
 void main(List<String> args) {
@@ -14,10 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // routes: {"/" : (context)=>register(),                                                              
-      //   // "/halaman2" : (context)=>Page2()
+      //   "/todo" : (context)=>todo(),
       //   },
-      // initialRoute: "/", 
-      home: register()
+      initialRoute: "/", 
+      // home: register(),
+      home: todo()
       );
   }
 }
