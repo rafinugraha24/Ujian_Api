@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -30,6 +33,33 @@ class _registerState extends State<register> {
         _message = 'Semua data wajib diisi.';
       });
       return;
+    }
+
+    setState(() {
+      _isLoading = true;
+      _message = 'Mendaftar... Mohon tunggu';
+    });
+
+    const String url = 'https://dummyjson.com/todos';
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8'
+        },
+
+        body: jsonEncode(<String, dynamic>{
+          'first_name': firstName,
+          'last_name': lastName,
+          'age': age,
+          'email': email,
+        }),
+      );
+
+      if (response.statusCode == 2001 || response.statusCode == 200) {
+        
+      }
     }
   }
 
