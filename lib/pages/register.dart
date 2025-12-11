@@ -25,7 +25,7 @@ class _registerState extends State<register> {
     final int? age = int.tryParse(_ageController.text);
     final String email = _emailController.text;
 
-    if (firstName.isEmpty || lastName || age == null || email.isEmpty) {
+    if (firstName.isEmpty || lastName.isEmpty || age == null || email.isEmpty) {
       setState(() {
         _message = 'Semua data wajib diisi.';
       });
